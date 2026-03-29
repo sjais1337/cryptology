@@ -15,8 +15,8 @@
 // we eventually reach longer (non space-filled) payloads
 __device__ void gen_str(uint64_t id, unsigned char* prefix){
     for(int i = PREFIX_LEN - 1; i >= 0; i--){
-        prefix[i] = (char) ((id%95) + 32);
-        id /= 95;
+        prefix[i] = (char) ((id%94) + 33);
+        id /= 94;
     }
 }
 
@@ -89,12 +89,12 @@ int main() {
     const char *suffix = "@iitk.ac.in";
     int suffix_len = strlen(suffix);
 
-    int num_bits_to_match = 48; 
+    int num_bits_to_match = 32; 
     int num_bytes_to_match = num_bits_to_match/8; 
 
-    int* h_found_flag = 0; 
+    int h_found_flag = 0; 
     unsigned char h_found[64] = {0};
-    unsigned char h_target_hash[DIGEST_LENGTH] = {0};
+    // unsigned char h_target_hash[DIGEST_LENGTH] = {0};
 
     unsigned char   *d_target,
                     *d_target_hash, 
@@ -107,7 +107,7 @@ int main() {
     cudaMalloc((void**)&d_target_hash, DIGEST_LENGTH);
     cudaMalloc((void**)&d_suffix, suffix_len);
     cudaMalloc((void**)&d_found_flag, sizeof(int));
-    cudaMalloc((void**)&h_found, 64);
+    cudaMalloc((void**)&d_found, 64);
        
     // Compute the target hash using specific kernel
     cudaMemcpy(d_target, target, target_len, cudaMemcpyHostToDevice);
@@ -117,7 +117,7 @@ int main() {
     cudaFree(d_target);
 
     cudaMemcpy(d_suffix, suffix, suffix_len, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_found_flag, h_found_flag, sizeof(int), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_found_flag, &h_found_flag, sizeof(int), cudaMemcpyHostToDevice);
 
     int threadPerBlock = 512; 
     int numBlocks = 65535;
