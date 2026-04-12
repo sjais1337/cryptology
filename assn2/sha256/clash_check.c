@@ -9,7 +9,7 @@
 #define DIGEST_LENGTH 32
 
 #define NUM_THREADS 16
-#define NUM_REPS 2
+#define NUM_REPS 1
 #define NUM_BITS_TO_MATCH 56
 
 #define TABLE_SIZE 536870912ULL 
@@ -49,7 +49,7 @@ void unpack_prefix(uint64_t packed, unsigned char* out_payload) {
 void* worker(void *args){
     int thread_id = *(int*) args;
 
-    unsigned int seed = time(NULL) ^ (thread_id * 1999) ^ (iter * 6666);
+    unsigned int seed = (unsigned int)time(NULL) * (thread_id + 1) * (iter + 1) * 73856093;
     unsigned char to_bake[64]; 
 
     memcpy(to_bake + prefix_len, suffix, suffix_len);
@@ -73,14 +73,15 @@ void* worker(void *args){
         SHA256((unsigned char*) to_bake, prefix_len + suffix_len, candidate_hash);
         iterations++;
         
-        uint64_t hash_56 = 0;
-        for(int j = 0; j < 7; j++) {
-            hash_56 = (hash_56 << 8) | candidate_hash[j];
+        uint64_t hash_val = 0;
+        int bytes_to_match = NUM_BITS_TO_MATCH / 8;
+        for(int j = 0; j < bytes_to_match; j++) {
+            hash_val = (hash_val << 8) | candidate_hash[j];
         }
 
-        uint64_t slot = hash_56 & TABLE_MASK;
+        uint64_t slot = (hash_val ^ (hash_val * 2654435761ULL)) & TABLE_MASK;
         
-        uint128_t new_entry = ((uint128_t)hash_56 << 64) | packed_prefix;
+        uint128_t new_entry = ((uint128_t)hash_val << 64) | packed_prefix;
         uint128_t empty_entry = ~(uint128_t)0;
 
         while (1) {
@@ -93,7 +94,7 @@ void* worker(void *args){
                 uint64_t old_hash = (uint64_t)(old_entry >> 64);
                 uint64_t old_id   = (uint64_t)old_entry;
 
-                if (old_hash == hash_56) {
+                if (old_hash == hash_val) {
                     if (old_id != packed_prefix) {
                         if (__sync_bool_compare_and_swap(&found_flag, 0, 1)) {
                             winner1_packed = old_id;

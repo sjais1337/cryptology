@@ -1,0 +1,265 @@
+-----------------------------------------------------------------------------------
+INPUT
+-----------------------------------------------------------------------------------
+gcc match_check.c -lcrypto -lpthread -O3 -o match
+./match 
+
+-----------------------------------------------------------------------------------
+OUTPUT
+-----------------------------------------------------------------------------------
+Hashes checked: ~52000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 0 complete. Total iterations: 80796736 
+
+Hashes checked: ~16000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 1 complete. Total iterations: 15743690 
+
+Hashes checked: ~20000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 2 complete. Total iterations: 31189454 
+
+Hashes checked: ~4000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 3 complete. Total iterations: 10532682 
+
+Hashes checked: ~16000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 4 complete. Total iterations: 15061390 
+
+Hashes checked: ~12000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 5 complete. Total iterations: 21674938 
+
+Hashes checked: ~16000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 6 complete. Total iterations: 26361401 
+
+Hashes checked: ~16000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 7 complete. Total iterations: 24805460 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 8 complete. Total iterations: 5623402 
+
+Hashes checked: ~28000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 9 complete. Total iterations: 25194153 
+
+Hashes checked: ~20000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 10 complete. Total iterations: 17770907 
+
+Hashes checked: ~64000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 11 complete. Total iterations: 103744457 
+
+Hashes checked: ~36000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 12 complete. Total iterations: 32659058 
+
+Hashes checked: ~8000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 13 complete. Total iterations: 16454966 
+
+Hashes checked: ~20000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 14 complete. Total iterations: 34794847 
+
+Hashes checked: ~12000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 15 complete. Total iterations: 18989714 
+
+Hashes checked: ~4000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 16 complete. Total iterations: 8418240 
+
+Hashes checked: ~56000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 17 complete. Total iterations: 48362021 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 18 complete. Total iterations: 2774964 
+
+Hashes checked: ~4000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 19 complete. Total iterations: 9040877 
+
+Hashes checked: ~8000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 20 complete. Total iterations: 13995417 
+
+Hashes checked: ~24000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 21 complete. Total iterations: 38384149 
+
+Hashes checked: ~12000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 22 complete. Total iterations: 24376698 
+
+Hashes checked: ~4000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: 31C8OCR@iitk.ac.in | Hash 2: 66c58debd5d33356dbbc03504fbf31902231a43d6bcdf5881310176cc7e32955
+Search Iteration 23 complete. Total iterations: 9603020 
+
+Hashes checked: ~20000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 24 complete. Total iterations: 34561700 
+
+Hashes checked: ~4000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 25 complete. Total iterations: 10817402 
+
+Hashes checked: ~32000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 26 complete. Total iterations: 52600213 
+
+Hashes checked: ~12000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 27 complete. Total iterations: 22966937 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 28 complete. Total iterations: 4991899 
+
+Hashes checked: ~40000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 29 complete. Total iterations: 58477668 
+
+Hashes checked: ~44000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 30 complete. Total iterations: 70185710 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 31 complete. Total iterations: 3086353 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 32 complete. Total iterations: 2404987 
+
+Hashes checked: ~44000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 33 complete. Total iterations: 69529634 
+
+Hashes checked: ~12000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 34 complete. Total iterations: 24318489 
+
+Hashes checked: ~20000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 35 complete. Total iterations: 31558459 
+
+Hashes checked: ~16000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 36 complete. Total iterations: 24814276 
+
+Hashes checked: ~24000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 37 complete. Total iterations: 36844791 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 38 complete. Total iterations: 4524603 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 39 complete. Total iterations: 4573679 
+
+Hashes checked: ~32000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 40 complete. Total iterations: 51682119 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 41 complete. Total iterations: 1759054 
+
+Hashes checked: ~44000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 42 complete. Total iterations: 45045350 
+
+Hashes checked: ~4000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 43 complete. Total iterations: 7727595 
+
+Hashes checked: ~16000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 44 complete. Total iterations: 29000528 
+
+Hashes checked: ~40000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: MmfqDdh@iitk.ac.in | Hash 2: 66c58de7ba366f77ab026eab538e9ee55a9f37db98730f574e5a063d7d920a0a
+Search Iteration 45 complete. Total iterations: 63880251 
+
+Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: 31C8OCR@iitk.ac.in | Hash 2: 66c58debd5d33356dbbc03504fbf31902231a43d6bcdf5881310176cc7e32955
+Search Iteration 46 complete. Total iterations: 6052206 
+
+Hashes checked: ~8000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: jwj=%r&@iitk.ac.in | Hash 2: 66c58d36bca24caef66183ba4334ce51e8095ab3665f8ae95e9523ad2428e6fd
+Search Iteration 47 complete. Total iterations: 11729752 
+
+Hashes checked: ~16000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: eu_M{aJ@iitk.ac.in | Hash 2: 66c58d63365454737ee6f8712cfda7f4f3f1e3b48f8cbfd23b1d955f98518a5e
+Search Iteration 48 complete. Total iterations: 15991435 
+
+Hashes checked: ~4000000 <> Collision Found
+Payload 1: shivanshj@iitk.ac.in | Hash 1: 66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98
+Payload 2: }U)SSQ:@iitk.ac.in | Hash 2: 66c58d82cd1015a8106d9dd1c60219c3cca92d66d6ef09548313bbedad325fcb
+Search Iteration 49 complete. Total iterations: 8630151 
+
+
+
+--- FINAL STATISTICS (50 REPS) ---
+80796736, 15743690, 31189454, 10532682, 15061390, 21674938, 26361401, 24805460, 5623402, 25194153, 17770907, 103744457, 32659058, 16454966, 34794847, 18989714, 8418240, 48362021, 2774964, 9040877, 13995417, 38384149, 24376698, 9603020, 34561700, 10817402, 52600213, 22966937, 4991899, 58477668, 70185710, 3086353, 2404987, 69529634, 24318489, 31558459, 24814276, 36844791, 4524603, 4573679, 51682119, 1759054, 45045350, 7727595, 29000528, 63880251, 6052206, 11729752, 15991435, 8630151, 
+Average Iterations Taken: 26682157.640000
+

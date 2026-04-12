@@ -7,7 +7,7 @@
 
 #define DIGEST_LENGTH 32
 #define PREFIX_LEN 7
-
+#define NUM_BITS_TO_MATCH 32
 
 // The first few characters are blank space (basically first 3)
 // since we have only 33 million threads here, thus the ids are 
@@ -89,7 +89,7 @@ int main() {
     const char *suffix = "@iitk.ac.in";
     int suffix_len = strlen(suffix);
 
-    int num_bits_to_match = 32; 
+    int num_bits_to_match = NUM_BITS_TO_MATCH; 
     int num_bytes_to_match = num_bits_to_match/8; 
 
     int h_found_flag = 0; 

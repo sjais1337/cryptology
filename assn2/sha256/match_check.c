@@ -9,7 +9,7 @@
 #define DIGEST_LENGTH 32
 
 #define NUM_THREADS 16
-#define NUM_REPS 2
+#define NUM_REPS 50
 #define NUM_BITS_TO_MATCH 24
 
 unsigned char target_hash[DIGEST_LENGTH];

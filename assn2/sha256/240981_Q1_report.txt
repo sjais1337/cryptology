@@ -1,0 +1,27 @@
+# Matching 
+There are two files for match checking, one of them is CPU based the other is GPU based. The CPU based version is used for multiple iterations, and uses some degree of randomness. The GPU based version is however deterministic, and is used to find the max bits matching.
+
+Output of match_check.c: 240981_Q1_partA-D_CPU_output.txt
+Output of match_check.cu:
+Hashes Computed: 4898872320 Number of Threads Launched: 33553920
+
+Found Collision: !!_Yc,&@iitk.ac.in
+
+Since the GPU version is deterministic, its not feasible to run multiple iterations of it, however it yields a match for the first 32 bits in around 4-5 seconds. If we leave it running for longer, we might potentially be able to reach 40-48 bits in practical time. We also found a 40bit match, but it has a whitespace in the beginning, " LKe:S{@iitk.ac.in" has the hash "66c58d5e90080fe87329250716b6463833638204c128a32e9105fa231a02ad75", which matches the first 40 bytes with "shivanshj24@iitk.ac.in" hash, i.e. "66c58d5e901b8c222af0233bef977dc94cf32239bbcc9649c816858eba221e98".
+
+However, in the CPU version, we obtained the following as the Average Iterations Taken: 26682157.64. Taking the logarithm base 2, we obtain log_2(26682157.64) = 24.66. If the number of bits we were trying to match was n, then the probability of finding a match with a single random input is 1/2^n. Thus, it should take approximately 2^n iterations to get a n bit match. Here, the value obtained is close to 2^24, that is why we are getting the specified value. 
+
+To control the number of matching bits, modify the "NUM_BITS_TO_MATCH" macro in the definitions, present on line 10 for match_check.cu and line 13 for match_check.c.
+
+
+# Clashing
+Output of clash_check.c: 240981_Q1_partE-G_CPU.txt
+
+In this case, we created a table to store the has values and check if any two values are clashing. The output file is configured to check for  The average number of iterations obtained here was 18000292.04 for finding a clash in the first 48 bits of the hash, which log_2 is equal to 24.1. By the birthday problem, we should approximately be taking 2^(48/2) = 2^24 iterations for finding a clash, which matches with the statistic obtained. The longest clash we could find was 56bits, but we reached memory bounds with 64bits (my machine has 32gb ram, we would need approximately 130gb for 64bits), although time taken for 56 bits was also practical. 
+
+By chance the following collision in the first 56bits was obtained pretty quickly:
+
+Collision Found
+Payload 1: uxEk74U@iitk.ac.in | Hash 1: deed10ee4f30bc34aeb188b1860208fff1aa6965f709d88f9fd01cef86b4094b
+Payload 2: 18Ph84l@iitk.ac.in | Hash 2: deed10ee4f30bca14b52b89fe995a422e5154703e9fdecdcfb35e16d3c7353c3
+Search Iteration 1 complete. Total iterations: 6746025 
