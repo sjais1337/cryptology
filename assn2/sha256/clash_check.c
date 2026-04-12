@@ -16,12 +16,13 @@
 #define TABLE_MASK (TABLE_SIZE - 1)
 #define EMPTY_HASH 0xFFFFFFFFFFFFFFFFULL
 
+typedef unsigned __int128 uint128_t;
+
 const char *suffix = "@iitk.ac.in";
 size_t suffix_len;
 const int prefix_len = 7;
 
-uint64_t *table_hashes;
-uint64_t *table_ids;
+uint128_t *hash_table;
 
 int iter = 0;
 volatile int found_flag = 0;
@@ -29,7 +30,11 @@ volatile int found_flag = 0;
 uint64_t winner1_packed = 0;
 uint64_t winner2_packed = 0;
 
-uint64_t thread_iters[NUM_THREADS] = {0};
+struct __attribute__((aligned(64))) ThreadStats {
+    uint64_t iters;
+};
+
+struct ThreadStats thread_iters[NUM_THREADS];
 uint64_t rep_iters[NUM_REPS] = {0};
 
 void unpack_prefix(uint64_t packed, unsigned char* out_payload) {
@@ -75,41 +80,46 @@ void* worker(void *args){
 
         uint64_t slot = hash_56 & TABLE_MASK;
         
-        while (1) {
-            uint64_t old_hash = __sync_val_compare_and_swap(&table_hashes[slot], EMPTY_HASH, hash_56);
+        uint128_t new_entry = ((uint128_t)hash_56 << 64) | packed_prefix;
+        uint128_t empty_entry = ~(uint128_t)0;
 
-            if (old_hash == EMPTY_HASH) {
-                table_ids[slot] = packed_prefix;
-                break;
-            }
-            else if (old_hash == hash_56) {
-                uint64_t other_packed = table_ids[slot];
-                
-                if (other_packed != packed_prefix) {
-                    if (__sync_bool_compare_and_swap(&found_flag, 0, 1)) {
-                        winner1_packed = other_packed;
-                        winner2_packed = packed_prefix;
-                    }
-                }
+        while (1) {
+            uint128_t old_entry = __sync_val_compare_and_swap(&hash_table[slot], empty_entry, new_entry);
+
+            if (old_entry == empty_entry) {
                 break;
             }
             else {
-                slot = (slot + 1) & TABLE_MASK;
+                uint64_t old_hash = (uint64_t)(old_entry >> 64);
+                uint64_t old_id   = (uint64_t)old_entry;
+
+                if (old_hash == hash_56) {
+                    if (old_id != packed_prefix) {
+                        if (__sync_bool_compare_and_swap(&found_flag, 0, 1)) {
+                            winner1_packed = old_id;
+                            winner2_packed = packed_prefix;
+                        }
+                    }
+                    break;
+                }
+                else {
+                    slot = (slot + 1) & TABLE_MASK;
+                }
             }
         }
         
         if (thread_id == 0 && iterations % 250000 == 0) {
-            printf("\rHashes checked: ~%llu...", iterations * NUM_THREADS);
+            printf("\rHashes checked: ~%llu <>", iterations * NUM_THREADS);
             fflush(stdout);
         }
     }
 
-    thread_iters[thread_id] = iterations;
+    thread_iters[thread_id].iters = iterations;
     return NULL;
 }
 
 void solve(int target){
-    memset(table_hashes, 0xFF, TABLE_SIZE * sizeof(uint64_t));
+    memset(hash_table, 0xFF, TABLE_SIZE * sizeof(uint128_t));
     pthread_t threads[NUM_THREADS];
     int threads_ids[NUM_THREADS];
 
@@ -131,7 +141,7 @@ void solve(int target){
     SHA256(p1, strlen((char*)p1), h1);
     SHA256(p2, strlen((char*)p2), h2);
 
-    printf("\n\nCollision Found\n", iter + 1);
+    printf("Collision Found\n", iter + 1);
     printf("Payload 1: %s | Hash 1: ", p1);
     for(int l = 0; l < 32; l++) printf("%02x", h1[l]);
 
@@ -141,10 +151,10 @@ void solve(int target){
 
     uint64_t tot = 0; 
     for(int i = 0; i < NUM_THREADS; i++){
-        tot += thread_iters[i];
+        tot += thread_iters[i].iters;
     }
 
-    printf("Search Iteration %d complete. Total iterations: %llu \n", iter + 1, tot);
+    printf("Search Iteration %d complete. Total iterations: %llu \n\n", iter + 1, tot);
     rep_iters[iter] = tot;
     iter++;
     found_flag = 0;
@@ -157,10 +167,9 @@ void solve(int target){
 int main(){
     suffix_len = strlen(suffix);
 
-    table_hashes = (uint64_t*)malloc(TABLE_SIZE * sizeof(uint64_t));
-    table_ids = (uint64_t*)malloc(TABLE_SIZE * sizeof(uint64_t));
+    hash_table = (uint128_t*)malloc(TABLE_SIZE * sizeof(uint128_t));
 
-    if (!table_hashes || !table_ids) {
+    if (!hash_table) {
         printf("Out of Memory.\n");
         return 1;
     }
@@ -175,9 +184,8 @@ int main(){
     }
     
     double average = (double)sum / NUM_REPS;
-    printf("Average Iterations Taken: %f\n", average);
+    printf("\nAverage Iterations Taken: %f\n", average);
     
-    free(table_hashes);
-    free(table_ids);
+    free(hash_table);
     return 0;
 }

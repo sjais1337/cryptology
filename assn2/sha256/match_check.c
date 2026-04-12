@@ -9,8 +9,8 @@
 #define DIGEST_LENGTH 32
 
 #define NUM_THREADS 16
-#define NUM_REPS 100
-#define NUM_BITS_TO_MATCH 32
+#define NUM_REPS 2
+#define NUM_BITS_TO_MATCH 24
 
 unsigned char target_hash[DIGEST_LENGTH];
 size_t num_bytes_to_match;
@@ -49,27 +49,33 @@ void* worker(void *args){
         if(memcmp(candidate_hash, target_hash, num_bytes_to_match) == 0) {
             if(!found_flag) {
                 found_flag = 1;
-                printf("\nTarget Hash: ");
+                printf("Collision Found\n");
+                printf("Payload 1: shivanshj@iitk.ac.in | Hash 1: ");
 
                 for(int l = 0; l < DIGEST_LENGTH; l++){
                     printf("%02x", *(target_hash + l));
                 }
 
-                printf("\nColliding Hash: ");
+                printf("\nPayload 2: %s | Hash 2: ", to_bake);
                 for(int l = 0; l < DIGEST_LENGTH; l++){
                     printf("%02x", *(candidate_hash + l));
                 }
 
-                printf("\n\n");
-
-                printf("Colliding Payload: %s\n", to_bake);
-
+                printf("\n");
                 break;
             }
+        }
+
+
+        if (thread_id == 0 && iterations % 250000 == 0) {
+            printf("\rHashes checked: ~%llu <> ", iterations * NUM_THREADS);
+            fflush(stdout);
         }
     }
 
     thread_iters[thread_id] = iterations;
+
+
 
     free(to_bake); 
     return NULL;
@@ -93,7 +99,7 @@ void solve(int target){
         tot += thread_iters[i];
     }
 
-    printf("Search Iteration %d complete. Total iterations: %lld \n", iter, tot);
+    printf("Search Iteration %d complete. Total iterations: %lld \n\n", iter, tot);
     rep_iters[iter] = tot;
     iter++;
     found_flag = 0;
@@ -105,7 +111,6 @@ void solve(int target){
 
 
 int main(){
-
     const char *data = "shivanshj24@iitk.ac.in";
     SHA256((unsigned char*) data, strlen(data), target_hash);
     suffix_len = strlen(suffix);
@@ -115,13 +120,15 @@ int main(){
     solve(NUM_REPS);
 
     uint64_t sum = 0;
+    printf("\n\n--- FINAL STATISTICS (%d REPS) ---\n", NUM_REPS);
     for(int i = 0; i < NUM_REPS; i++){
         sum += rep_iters[i];
         printf("%d, ", rep_iters[i]);
     }
-    double average = sum/NUM_REPS;
 
-    printf("\n\n\nAverage Iterations Taken: %f\n", average);
+    double average = (double) sum/NUM_REPS;
+    printf("\nAverage Iterations Taken: %f\n", average);
+
     return 0;
 }
 
